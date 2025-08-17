@@ -1,16 +1,43 @@
 import React from 'react'
 import Image from 'next/image'
 import Logo from '@/assets/icons/logo.png'
+import Apk from '@/assets/icons/logo_android.svg'
+import Ias from '@/assets/icons/logo_apple.svg'
+import { PT_Serif, Noto_Sans } from 'next/font/google'
+import Link from 'next/link'
+
+const ptSerif = PT_Serif({
+  subsets: ['latin'],
+  weight: "700",
+  variable: "--font-PTSerif",
+});
+
+const notoSans = Noto_Sans({
+  subsets: ['latin'],
+  weight: "400",
+  variable: "--font-NotoSans",
+});
+
 const Page = () => {
   return (
-    <div className='p-4'>
-      <div className='flex flex-row justify-between items-center text-white px-7 pt-3'>
+    <div className={`py-4 ${ptSerif.variable} ${notoSans.variable}`}>
+      <div className='absolute top-0 w-full -z-10 mask-x-from-70% mask-x-to-90% mask-y-from-70% mask-y-to-90%'>
+        <Image
+          className='mx-auto'
+          src="/lou2_cover.jpg"
+          alt="Background Image"
+          height={900}
+          width={1920}
+          objectFit="contain"
+        />
+      </div>
+      <div className='flex flex-row justify-between items-center text-white px-2 sm:px-5 md:px-20 lg:px-48 xl:px-72'>
         <Image
           className='mr-2'
           src={Logo}
           alt="GameDex_logo"
-          width={90}
-          height={90}
+          width={100}
+          height={100}
         />
         <button className="bg-slate-800 no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-s font-semibold leading-6  text-white inline-block">
           <span className="absolute inset-0 overflow-hidden rounded-full">
@@ -38,31 +65,25 @@ const Page = () => {
           </div>
           <span className="absolute -bottom-0 left-[1.125rem] h-px w-[calc(100%-2.25rem)] bg-gradient-to-r from-emerald-400/0 via-emerald-400/90 to-emerald-400/0 transition-opacity duration-500 group-hover:opacity-40" />
         </button>
-
       </div>
-      <div className='flex flex-col justify-center items-center h-screen'>
-        <p className='font-medium mb-10'>Your one-stop solution for discovering and reviewing games.</p>
-        <div className='flex flex-row align-items-center gap-9'>
-          <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-              <Image
-                src="/android.svg"
-                width={20}
-                height={20}
-                alt="Download Android App"
-                className="w-12 h-12 text-blue-500 invert"
-              />
-              DOWNLOAD APK
-            </span>
-          </button>
-          <button className="relative inline-flex h-12 overflow-hidden rounded-full p-[1px] focus:outline-none focus:ring-2 focus:ring-slate-400 focus:ring-offset-2 focus:ring-offset-slate-50">
-            <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
-            <span className="inline-flex h-full w-full cursor-pointer items-center justify-center rounded-full bg-slate-950 px-3 py-1 text-sm font-medium text-white backdrop-blur-3xl">
-              DEMO WEBSITE
-            </span>
-          </button>
+      <div className='flex flex-col justify-center items-center h-screen xl:mt-14'>
+        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-4xl'>Discover and track popular games.</span>
+        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-4xl'>Share and create reviews or lists.</span>
+        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-4xl'>Find and follow people like you.</span>
 
+        <Link href="https://gamedexdemo.vercel.app/" target="_blank" className='font-body mt-10 px-2 lg:px-5 py-1 lg:py-2 rounded-sm font-extrabold text-lg bg-violet-600 hover:bg-violet-700 hover:text-neutral-200 text-center'>
+          Demo Website
+        </Link>
+        <div className='flex flex-row align-items-center gap-9 mt-7'>
+          <Link href="#" className="flex items-center font-body gap-2 bg-neutral-200 hover:bg-neutral-400 text-black font-semibold py-2 px-6 rounded-sm shadow transition-colors">
+            <Image src={Apk} alt="Download APK" width={30} height={30} />
+            <span>Download APK for Android</span>
+          </Link>
+
+          <Link href="#" className="flex items-center font-body gap-2 cursor-pointer bg-neutral-200 hover:bg-neutral-400 text-black font-semibold py-2 px-6 rounded-sm shadow transition-colors">
+            <Image src={Ias} alt="Download IPA" width={30} height={30} />
+            <span>Download IPA for iOS</span>
+          </Link>
         </div>
       </div>
     </div>
