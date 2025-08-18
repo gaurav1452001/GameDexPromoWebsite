@@ -58,13 +58,25 @@ export default function GameDisplay() {
                         className="bg-neutral-700 border border-neutral-600 flex-shrink-0"
                     />
                 ))}
-            
+
+                {/* Duplicate for seamless loop */}
+                {games?.map((game) => (
+                    <Image
+                        key={game?.id + '-dup'}
+                        src={
+                            game?.cover?.url
+                                ? 'https:' + game.cover.url.replace('t_thumb', 't_cover_big_2x')
+                                : '/file.svg'
+                        }
+                        alt="GameDex"
+                        width={180}
+                        height={250}
+                        className="bg-neutral-700 border border-neutral-600 flex-shrink-0"
+                    />
+                ))}
+
             </div>
-            {/* Mask overlay for fade effect, does not affect layout or scrolling */}
-            <div className="pointer-events-none absolute inset-0 w-full h-full z-10" style={{
-                maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
-            }} />
+
             <style>{`
                 @keyframes game-scroll {
                     0% { transform: translateX(0); }

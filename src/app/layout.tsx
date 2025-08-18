@@ -14,7 +14,7 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "GameDex",
+  title: "GameDex: Discover and Track Video Games",
   description: "Discover, review and create lists for games that you love.",
 };
 

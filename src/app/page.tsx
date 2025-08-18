@@ -12,8 +12,9 @@ import Link from 'next/link'
 import Features from '@/components/features'
 import GameDisplay from '@/components/gameDisplay'
 import AndroidButton from '@/components/androidButton'
-import IosButton from '@/components/iosButton'
+import Showcase from '@/components/showcase'
 import Footer from '@/components/footer'
+import IosButton from '@/components/iosButton'
 
 const Page = () => {
 
@@ -58,23 +59,24 @@ const Page = () => {
         <div className='flex flex-col justify-center items-center mt-10 sm:mt-12 md:mt-15'>
           <Link href="https://gamedexdemo.vercel.app/" target="_blank" className='flex items-center gap-2  mt-10 px-2 lg:px-3 py-1 lg:py-2 rounded-3xl border border-neutral-600 bg-black text-white text-[0.9rem] '>
 
-            <Image src={animation} alt="WebPreview" width={20} height={20} />
+            <Image src={animation} alt="WebPreview" width={25} height={25} />
             <span>Web Preview for App</span>
             <Image src={Forward} alt="WebPreview" width={15} height={10} className='invert' />
           </Link>
           <TextGenerateEffectDemo />
 
-          <div className='flex mt-7 ld:mt-20 px-2 lg:px-4'>
+          <div className='flex flex-col gap-2.5 mt-7 ld:mt-20 px-2 lg:px-4'>
             <AndroidButton />
+            <IosButton/>
           </div>
           <div className='mt-7 text-neutral-400 font-sans text-[0.6rem] sm:text-base'>
             Will be available on Google Play Store soon.
           </div>
           <GameDisplay />
           <Features />
+          <Showcase />
         </div>
         <Footer />
-
       </div>
     </div>
   )
