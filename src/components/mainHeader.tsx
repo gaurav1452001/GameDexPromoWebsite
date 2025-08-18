@@ -10,7 +10,7 @@ export function MainHeader() {
                 <div className="text-3xl font-sans mt-5 font-extrabold bg-gradient-to-r from-neutral-100 via-neutral-300 to-neutral-400 bg-clip-text text-transparent">
                     Video Games Like Never Before
                 </div>
-                <div className="text-lg font-sans font-extralight mt-10 lg:px-10">
+                <div className="text-base md:text-lg font-sans font-extralight mt-10 lg:px-10">
                     Think Letterboxd but for video games. You can track, review, create lists for video games that you love. Follow your friends and discover new titles.
                 </div>
             </div>

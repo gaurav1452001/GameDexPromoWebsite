@@ -10,7 +10,7 @@ const AndroidButton = () => {
             <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </span>
-            <div className="relative flex justify-between  z-10 rounded-full font-sans bg-zinc-950 py-1 px-2 md:py-2 md:px-4 ring-1 ring-white/10 ">
+            <div className="relative flex justify-between  z-10 rounded-full font-sans bg-zinc-950 py-2 px-4 ring-1 ring-white/10 ">
                 <div className='flex flex-row'>
                     <Image src={Apk} alt="Download APK" width={20} height={20} className='invert mr-2' />
                     <span>

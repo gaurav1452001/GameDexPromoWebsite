@@ -56,7 +56,7 @@ const Page = () => {
           </div>
         </div>
 
-        <div className='flex flex-col justify-center items-center mt-10 sm:mt-12 md:mt-15'>
+        <div className='flex flex-col justify-center items-center mt-2 sm:mt-12 md:mt-15'>
           <Link href="https://gamedexdemo.vercel.app/" target="_blank" className='flex items-center gap-2  mt-10 px-2 lg:px-3 py-1 lg:py-2 rounded-3xl border border-neutral-600 bg-black text-white text-[0.9rem] '>
 
             <Image src={animation} alt="WebPreview" width={25} height={25} />
