@@ -21,7 +21,7 @@ export default function GameDisplay() {
                         sortOrder: 5,
                     },
                 });
-                setGames(res?.data.slice(0, 6));
+                setGames(res?.data);
             } catch (err: any) {
                 setError("Failed to fetch games");
             } finally {
@@ -35,21 +35,45 @@ export default function GameDisplay() {
     if (error) return <div className="text-red-500">{error}</div>;
 
     return (
-        <div className=" grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-6 justify-center gap-4 mt-32 px-3">
-            {games?.map((game) => (
-                <Image
-                    key={game?.id}
-                    src={
-                        game?.cover?.url
-                            ? 'https:' + game.cover.url.replace('t_thumb', 't_cover_big_2x')
-                            : '/file.svg'
-                    }
-                    alt="GameDex"
-                    width={180}
-                    height={250}
-                    className="bg-neutral-700 border border-neutral-600"
-                />
-            ))}
+        <div className="relative w-full max-w-full overflow-x-hidden mt-24 px-3">
+            <div
+                className="flex gap-4 animate-game-scroll pointer-events-none"
+                style={{
+                    animation: games && games.length > 0 ? 'game-scroll 30s linear infinite' : undefined,
+                    minWidth: '100%',
+                    maxWidth: '100vw',
+                }}
+            >
+                {games?.map((game) => (
+                    <Image
+                        key={game?.id}
+                        src={
+                            game?.cover?.url
+                                ? 'https:' + game.cover.url.replace('t_thumb', 't_cover_big_2x')
+                                : '/file.svg'
+                        }
+                        alt="GameDex"
+                        width={180}
+                        height={250}
+                        className="bg-neutral-700 border border-neutral-600 flex-shrink-0"
+                    />
+                ))}
+            
+            </div>
+            {/* Mask overlay for fade effect, does not affect layout or scrolling */}
+            <div className="pointer-events-none absolute inset-0 w-full h-full z-10" style={{
+                maskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+                WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 10%, black 90%, transparent 100%)',
+            }} />
+            <style>{`
+                @keyframes game-scroll {
+                    0% { transform: translateX(0); }
+                    100% { transform: translateX(-50%); }
+                }
+                .animate-game-scroll {
+                    width: max-content;
+                }
+            `}</style>
         </div>
     );
 }

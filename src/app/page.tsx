@@ -1,10 +1,13 @@
+"use client"
 import React from 'react'
 import Image from 'next/image'
 import Logo from '@/assets/icons/logo.png'
+import { TextGenerateEffectDemo } from '@/components/mainHeader'
 import Github from '@/assets/icons/logo-github.svg'
 import Person from '@/assets/icons/person-circle-outline.svg'
+import Twitter from '@/assets/icons/logo-twitter.svg'
 import Forward from '@/assets/icons/arrow-forward-outline.svg'
-import { PT_Serif, Noto_Sans } from 'next/font/google'
+import animation from "@/assets/icons/pulsegreen.gif"
 import Link from 'next/link'
 import Features from '@/components/features'
 import GameDisplay from '@/components/gameDisplay'
@@ -12,71 +15,70 @@ import AndroidButton from '@/components/androidButton'
 import IosButton from '@/components/iosButton'
 import Footer from '@/components/footer'
 
-const ptSerif = PT_Serif({
-  subsets: ['latin'],
-  weight: "700",
-  variable: "--font-PTSerif",
-});
-
-const notoSans = Noto_Sans({
-  subsets: ['latin'],
-  weight: "300",
-  variable: "--font-NotoSans",
-});
-
 const Page = () => {
+
   return (
-    <div className={`py-4 ${ptSerif.variable} ${notoSans.variable}`}>
-      <div className='absolute top-0 w-full -z-10 mask-x-from-70% mask-x-to-90% mask-y-from-70% mask-y-to-90%'>
-        <Image
-          className='mx-auto'
-          src="/lou2_cover.jpg"
-          alt="Background Image"
-          height={900}
-          width={1920}
-          objectFit="contain"
-        />
-      </div>
-      <div className='flex flex-row justify-between items-center text-white px-2 sm:px-5 md:px-20 lg:px-48 xl:px-72'>
-        <Image
-          className='mr-2'
-          src={Logo}
-          alt="GameDex_logo"
-          width={100}
-          height={100}
-        />
-        <div className='flex flex-row gap-4'>
-          <Link target="_blank" href="https://github.com/gaurav1452001/GameDex">
-            <Image src={Github} alt="Github Link" width={30} height={20} className='invert' />
-          </Link>
-          <Link target="_blank" href="https://kumargaurav.me">
-            <Image src={Person} alt="Personal Website" width={35} height={30} />
-          </Link>
+    <div className={`min-h-screen w-full bg-[#020617] relative py-4`}>
+      {/* Magenta Orb Grid Background */}
+      <div
+        className="absolute inset-0 z-0"
+        style={{
+          background: "#020617",
+          backgroundImage: `
+        linear-gradient(to right, rgba(71,85,105,0.15) 1px, transparent 1px),
+        linear-gradient(to bottom, rgba(71,85,105,0.15) 1px, transparent 1px),
+        radial-gradient(circle at 50% 60%, rgba(236,72,153,0.15) 0%, rgba(168,85,247,0.05) 40%, transparent 70%)
+      `,
+          backgroundSize: "40px 40px, 40px 40px, 100% 100%",
+        }}
+      />
+      {/* Your Content/Components */}
+      <div className='absolute z-10'>
+        <div className='flex flex-row justify-between items-center text-white px-2 sm:px-5 md:px-20 lg:px-48 xl:px-96' >
+          <Image
+            className='mr-2'
+            src={Logo}
+            alt="GameDex_logo"
+            width={100}
+            height={100}
+          />
+          <div className='flex flex-row gap-4 align-items-center'>
+            <Link target="_blank" href="https://github.com/gaurav1452001/GameDex">
+              <Image src={Github} alt="Github Link" width={30} height={20} className='invert' />
+            </Link>
+            <Link target="_blank" href="https://kumargaurav.me">
+              <Image src={Person} alt="Personal Website" width={30} height={30} className='' />
+            </Link>
+            <Link target="_blank" href="https://x.com/Gdotkumar145">
+              <Image src={Twitter} alt="Twitter" width={30} height={30} className='invert' />
+            </Link>
+          </div>
         </div>
 
-      </div>
-      <div className='flex flex-col justify-center items-center mt-10 sm:mt-12 md:mt-20 lg:mt-40 xl:mt-[15rem]'>
-        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-lg sm:text-xl md:text-2xl lg:text-3xl  xl:text-4xl'>Discover popular games.</span>
-        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-lg sm:text-xl md:text-2xl lg:text-3xl  xl:text-4xl'>Create reviews or lists for games.</span>
-        <span className='mt-2 px-10 lg:px-16 xl:w-1/2 text-center font-head text-lg sm:text-xl md:text-2xl lg:text-3xl  xl:text-4xl'>Find and follow people like you.</span>
+        <div className='flex flex-col justify-center items-center mt-10 sm:mt-12 md:mt-15'>
+          <Link href="https://gamedexdemo.vercel.app/" target="_blank" className='flex items-center gap-2  mt-10 px-2 lg:px-3 py-1 lg:py-2 rounded-3xl border border-neutral-600 bg-black text-white text-[0.9rem] '>
 
-        <Link href="https://gamedexdemo.vercel.app/" target="_blank" className='flex items-center gap-2 font-body mt-10 px-2 lg:px-5 py-1 lg:py-2 rounded-sm font-extrabold text-xs sm:text-base lg:text-lg bg-violet-600 hover:bg-violet-700 hover:text-neutral-200 text-center'>
-          <span>Web Preview for App</span>
-          <Image src={Forward} alt="Download APK" width={20} height={20} className='invert' />
-        </Link>
-        <div className='flex flex-row align-items-center gap-9 mt-7 px-4'>
-          <AndroidButton />
-          <IosButton />
+            <Image src={animation} alt="WebPreview" width={20} height={20} />
+            <span>Web Preview for App</span>
+            <Image src={Forward} alt="WebPreview" width={15} height={10} className='invert' />
+          </Link>
+          <TextGenerateEffectDemo />
+
+          <div className='flex mt-7 ld:mt-20 px-2 lg:px-4'>
+            <AndroidButton />
+          </div>
+          <div className='mt-7 text-neutral-400 font-sans text-[0.6rem] sm:text-base'>
+            Will be available on Google Play Store soon.
+          </div>
+          <GameDisplay />
+          <Features />
         </div>
-        <div className='mt-7 text-neutral-400 font-body text-[0.6rem] sm:text-base'>
-          Will be available on Google Play Store soon.
-        </div>
-        <GameDisplay />
-        <Features />
+        <Footer />
+
       </div>
-      <Footer/>
     </div>
   )
 }
 
 export default Page
+
