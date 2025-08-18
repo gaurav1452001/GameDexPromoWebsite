@@ -1,6 +1,6 @@
 "use client";
 
-export function TextGenerateEffectDemo() {
+export function MainHeader() {
     return (
         <div className="w-full sm:w-5/6 md:w-2/3 lg:w-1/2 mx-auto px-5 sm:px-2 ">
             <div className="flex flex-col items-center justify-center mt-10 text-center font-bold">

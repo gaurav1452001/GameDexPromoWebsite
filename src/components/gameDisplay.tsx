@@ -35,11 +35,11 @@ export default function GameDisplay() {
     if (error) return <div className="text-red-500">{error}</div>;
 
     return (
-        <div className="relative w-full max-w-full overflow-x-hidden mt-24 px-3">
+        <div className="relative w-full max-w-full overflow-x-hidden mt-24">
             <div
-                className="flex gap-4 animate-game-scroll pointer-events-none"
+                className="flex gap-4 animate-marquee-infinite"
                 style={{
-                    animation: games && games.length > 0 ? 'game-scroll 30s linear infinite' : undefined,
+                    animation: games && games.length > 0 ? 'marquee 30s linear infinite' : undefined,
                     minWidth: '100%',
                     maxWidth: '100vw',
                 }}
@@ -76,16 +76,6 @@ export default function GameDisplay() {
                 ))}
 
             </div>
-
-            <style>{`
-                @keyframes game-scroll {
-                    0% { transform: translateX(0); }
-                    100% { transform: translateX(-50%); }
-                }
-                .animate-game-scroll {
-                    width: max-content;
-                }
-            `}</style>
         </div>
     );
 }

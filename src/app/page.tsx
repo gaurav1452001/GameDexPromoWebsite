@@ -2,7 +2,7 @@
 import React from 'react'
 import Image from 'next/image'
 import Logo from '@/assets/icons/logo.png'
-import { TextGenerateEffectDemo } from '@/components/mainHeader'
+import { MainHeader } from '@/components/mainHeader'
 import Github from '@/assets/icons/logo-github.svg'
 import Person from '@/assets/icons/person-circle-outline.svg'
 import Twitter from '@/assets/icons/logo-twitter.svg'
@@ -63,7 +63,7 @@ const Page = () => {
             <span>Web Preview for App</span>
             <Image src={Forward} alt="WebPreview" width={15} height={10} className='invert' />
           </Link>
-          <TextGenerateEffectDemo />
+          <MainHeader />
 
           <div className='flex flex-col gap-2.5 mt-7 ld:mt-20 px-2 lg:px-4'>
             <AndroidButton />
