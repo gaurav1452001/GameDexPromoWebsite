@@ -69,9 +69,6 @@ const Page = () => {
             <AndroidButton />
             <IosButton/>
           </div>
-          <div className='mt-7 text-neutral-400 font-sans text-[0.6rem] sm:text-base'>
-            Will be available on Google Play Store soon.
-          </div>
           <GameDisplay />
           <Features />
           <Showcase />

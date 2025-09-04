@@ -6,7 +6,7 @@ import Link from 'next/link'
 
 const AndroidButton = () => {
     return (
-        <Link href="https://github.com/gaurav1452001/GameDex/releases/download/apk/application-f299aa30-b641-4664-adcf-1c687a0330fd.1.apk" className="bg-slate-800  no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-[0.8rem] sm:text-base font-semibold leading-6  text-white inline-block">
+        <Link href="https://play.google.com/store/apps/details?id=com.kumargaurav14.GameDex&hl=en_IN" className="bg-slate-800  no-underline group cursor-pointer relative shadow-2xl shadow-zinc-900 rounded-full p-px text-[0.8rem] sm:text-base font-semibold leading-6  text-white inline-block">
             <span className="absolute inset-0 overflow-hidden rounded-full">
                 <span className="absolute inset-0 rounded-full bg-[image:radial-gradient(75%_100%_at_50%_0%,rgba(56,189,248,0.6)_0%,rgba(56,189,248,0)_75%)] opacity-0 transition-opacity duration-500 group-hover:opacity-100" />
             </span>
@@ -14,7 +14,7 @@ const AndroidButton = () => {
                 <div className='flex flex-row'>
                     <Image src={Apk} alt="Download APK" width={20} height={20} className='invert mr-2' />
                     <span>
-                        APK for Android
+                        Download for Android
                     </span>
                 </div>
                 <Image src={Download} alt="Download Icon" width={20} height={20} className='ml-2' />
